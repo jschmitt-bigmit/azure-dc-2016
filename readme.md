@@ -1,36 +1,36 @@
 ﻿# Windows Server 2019 - Standalone Domain Controller Template
 
 
-GitHub repository offers test platform who wants to deploy quickly Active Directory Environment which will be placed on Windows Server 2016 OS for Azure deployments. All of the templates in this repository have been developed for who needs this structure. This repository contains just Standalone Active Directory deployment templates that have been tested. The templates for Microsoft Learning Partner who wants to demonstrate quickly Azure Resource Manager Templates
+Ce Template ARM vous permet de déployer une image Windows Server 2019 et la préconfigurer afin d'y installer un rôle Controleur de domaine.
 
 Description | Link | Visualize
 --- | --- | ---
-Full deploy - Virtual Network, WS 2016 - New AD Forest  | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjschmitt-bigmit%2Fazure-dc-2019-supdevinci%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> | <a href="http://armviz.io/#/load=https%3A%2F%2Fraw.githubusercontent.com%2Fjschmitt-bigmit%2Fazure-dc-2019-supdevinci%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://armviz.io/visualizebutton.png"/></a>
+Déploiement Windows Server 2019 - Nouvelle Foret AD  | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjschmitt-bigmit%2Fazure-dc-2019-supdevinci%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> | <a href="http://armviz.io/#/load=https%3A%2F%2Fraw.githubusercontent.com%2Fjschmitt-bigmit%2Fazure-dc-2019-supdevinci%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://armviz.io/visualizebutton.png"/></a>
 
- # Deploys the following infrastructure:
+ # Déploiement:
 
- This template needs parameters which will be used for deployment process.
+ Paramètres du template:
 
-* envName      : Please provide your environment name. It might be like this : Microsoft > msft.
-* vNETAddress  : Please provide your Virtual Network Address Prefix. It should be like this : 192.168.0
-* userName     : Please provide your windows user name. It should be different from Administrator: Mike
-* userPassword : Please provide your windows  password. Example : Mike!s201
-* domainName   : Please provide your domain name. It might be like : msft.com
+* envName      : Préfixe qui va être repris pour le nommage des VM : Par défaut SUP.
+* vNETAddress  : Préfixe réseau du réseau Virtuel, par défaut : 192.168.50
+* userName     : Username Windows de la session Admin Locale
+* userPassword : Mot de passe de la session Admin Locale
+* domainName   : Nom de la forêt AD et du domaine qui vont être créé.
 
-This template allows you to create these resources.
+Modules déployés.
 
-* Virtual Machine - ADDS Service
-  * Network Security Group with RDP Rule
+* Windows Server 2019 - Rôle AD DS
+  * Network Security Group avec une règle de whitelist du port RDP (A REFINER)
   * Public Ip Address - Static
-  * Desired State Configuration Extension - ADDS
-  * BGInfo Extension 
-  * Diagnostic Storage
+  * Script Powershell qui installe le rôle ADDS et le configure
+  * Extension BGInfo 
+  * Compte de stockage pour les diagnostics de la VM
 * Virtual Network
   * 2 subnets: Application, Management
   * DNS Server : ADDS Server
 
 
-Also you can deploy this template with the Powershell. Before you have to login with your Azure Admin Account on the Azure Powershell. However, you can use Azure Cloud Shell.
+Déploiement avec PowerShell :
 
 ```PowerShell
 # --- Set resource group name and create
@@ -39,11 +39,11 @@ New-AzureRmResourceGroup -Name $ResourceGroupName -Location "West Europe" -Force
 
 # --- Deploy infrastructure
 $DeploymentParameters = @{
-    envName = "msft"
-    vNETAddress = "172.10.0"
-    userName = "prAdmin"
-    userPassword = "mike!s10!q"
-    domainName = 'msft.com'
+    envName = "SUP"
+    vNETAddress = "192.168.50.0"
+    userName = "AdminDC"
+    userPassword = "PasswordPourri"
+    domainName = 'supdevinci.lan'
 
 }
 
