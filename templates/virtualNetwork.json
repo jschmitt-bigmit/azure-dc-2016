@@ -5,7 +5,7 @@
     "envName": {
       "type": "string",
       "metadata": {
-        "description": "Please provide your environment name. It might be like this : Microsoft > msft"
+        "description": "Please provide your environment name. It might be like this : SupDeVinci > sdv"
       }
     },
     "vNETAddress": {

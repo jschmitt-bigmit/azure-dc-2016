@@ -39,12 +39,12 @@
   "variables": {
     "vnetID": "[resourceId(resourceGroup().name,'Microsoft.Network/virtualNetworks/',variables('vNETInfo').vNETName)]",
     "build_DC01": {
-      "vmSize": "Standard_F2s",
-      "vMName": "[concat(parameters('envName'),'-dc-01')]",
-      "vmPIPName": "[concat(parameters('envName'),'-pip-01')]",
-      "vmNicName": "[concat(parameters('envName'),'-nic-01')]",
+      "vmSize": "Standard_DS1_V2",
+      "vMName": "SUP-DC-001",
+      "vmPIPName": "SUP-DC-001-IP",
+      "vmNicName": "SUP-DC-001-NIC",
       "vmNicIP": "[concat(parameters('vNETAddress'), '.4')]",
-      "vmNSGName": "[concat(parameters('envName'),'-nsg-01')]",
+      "vmNSGName": "SRV-NSG-001",
       "VMDscName": "CreateADPDC",
       "VmDscArchive": "[parameters('DSC_domain_1_URL')]",
       "VmDscScript": "createadpdc.ps1",
@@ -57,7 +57,7 @@
       "resourceLocation": "[resourceGroup().location]"
     },
     "vNETInfo": {
-      "vNETName": "[concat(parameters('envName'),'-vn-01')]",
+      "vNETName": "SRV-VNet",
       "vNETAddress": "[concat(parameters('vNETAddress'),'.0/24')]",
       "vNETSub01Name": "[concat(parameters('envName'),'-Application-Subnet')]",
       "vNETSub02Name": "[concat(parameters('envName'),'-Mangement-Subnet')]",
@@ -160,7 +160,7 @@
           "imageReference": {
             "publisher": "MicrosoftWindowsServer",
             "offer": "WindowsServer",
-            "sku": "2016-Datacenter",
+            "sku": "2019-Datacenter",
             "version": "latest"
           },
           "osDisk": {
@@ -170,7 +170,7 @@
           "dataDisks": [
             {
               "name": "[concat(parameters('envName'),'-DataDisk-01')]",
-              "diskSizeGB": 10,
+              "diskSizeGB": 150,
               "lun": 0,
               "createOption": "Empty"
             }

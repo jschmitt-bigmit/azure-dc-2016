@@ -10,38 +10,40 @@
       }
     },
     "vNETAddress": {
-      "defaultValue": "172.10.0",
+      "defaultValue": "192.168.50",
       "type": "string",
       "metadata": {
-        "description": "Please provide your Virtual Network Address Prefix. It should be like this : 192.168.0 "
+        "description": "Préfixe réseau du VMNet qui va être créé"
       }
     },
     "userName": {
+      "defaultValue": "AdminDC",
       "type": "string",
       "metadata": {
-        "description": "Please provide your windows user name. It shoudl be different Administrator: Mike"
+        "description": "Login Admin local du serveur"
       }
     },
     "userPassword": {
       "type": "securestring",
       "metadata": {
-        "description": "Please provide your windows user's password. It shoudl be different Administrator: Mike!s201"
+        "description": "Mot de passe admin Local du Serveur"
       }
     },
     "domainName": {
+      "defaultValue": "supdevinci.lan",
       "type": "string",
       "metadata": {
-        "description": "Please provide your domain name. It might be like this : msft.com "
+        "description": "Nom du domaine"
       }
     }
   },
   "variables": {
     "templateBaseUrl": "https://raw.githubusercontent.com/hasangural/templates",
-    "virtualNetworkUrl": "https://raw.githubusercontent.com/hasangural/azure-dc-2016/master/templates/virtualNetwork.json",
-    "domainControllerUrl": "https://raw.githubusercontent.com/hasangural/azure-dc-2016/master/templates/domainController.json",
+    "virtualNetworkUrl": "https://raw.githubusercontent.com/jschmitt-bigmit/azure-dc-2019-supdevinci/master/templates/virtualNetwork.json",
+    "domainControllerUrl": "https://raw.githubusercontent.com/jschmitt-bigmit/azure-dc-2019-supdevinci/master/templates/domainController.json",
     "DSC": {
       "DSC_domain": {
-        "Link": "https://raw.githubusercontent.com/hasangural/azure-dc-2016/master/DSC/domain_build.zip"
+        "Link": "https://raw.githubusercontent.com/jschmitt-bigmit/azure-dc-2019-supdevinci/master/DSC/domain_build.zip"
       }
     },
     "resourceLocation": "[resourceGroup().location]"
