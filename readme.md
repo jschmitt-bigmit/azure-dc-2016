@@ -1,4 +1,4 @@
-﻿# Windows Server 2016 - Standalone Domain Controller Template
+﻿# Windows Server 2019 - Standalone Domain Controller Template
 
 
 GitHub repository offers test platform who wants to deploy quickly Active Directory Environment which will be placed on Windows Server 2016 OS for Azure deployments. All of the templates in this repository have been developed for who needs this structure. This repository contains just Standalone Active Directory deployment templates that have been tested. The templates for Microsoft Learning Partner who wants to demonstrate quickly Azure Resource Manager Templates
