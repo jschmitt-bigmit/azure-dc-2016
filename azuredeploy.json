@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "envName": {
-      "defaultValue": "MSFT",
+      "defaultValue": "SUP",
       "type": "string",
       "metadata": {
         "description": "Please provide your environment name. It might be like this : Microsoft > msft"
