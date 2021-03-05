@@ -40,7 +40,7 @@
     "vnetID": "[resourceId(resourceGroup().name,'Microsoft.Network/virtualNetworks/',variables('vNETInfo').vNETName)]",
     "build_DC01": {
       "vmSize": "Standard_DS1_V2",
-      "vMName": "SUP-DC-001",
+      "vMName": "[concat(parameters('envName'),'-DC-001')]",
       "vmPIPName": "[concat(parameters('envName'),'-pip-01')]",
       "vmNicName": "[concat(parameters('envName'),'-nic-01')]",
       "vmNicIP": "[concat(parameters('vNETAddress'), '.4')]",
