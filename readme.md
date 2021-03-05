@@ -1,11 +1,11 @@
-﻿# Windows Server 2016 - Standalone Domain Controller Template
+﻿# Windows Server 2019 - Standalone Domain Controller Template
 
 
 GitHub repository offers test platform who wants to deploy quickly Active Directory Environment which will be placed on Windows Server 2016 OS for Azure deployments. All of the templates in this repository have been developed for who needs this structure. This repository contains just Standalone Active Directory deployment templates that have been tested. The templates for Microsoft Learning Partner who wants to demonstrate quickly Azure Resource Manager Templates
 
 Description | Link | Visualize
 --- | --- | ---
-Full deploy - Virtual Network, WS 2016 - New AD Forest  | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhasangural%2Fazure-dc-2016%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> | <a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fhasangural%2Fazure-dc-2016%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://armviz.io/visualizebutton.png"/></a>
+Full deploy - Virtual Network, WS 2016 - New AD Forest  | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjschmitt-bigmit%2Fazure-dc-2019-supdevinci%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> | <a href="http://armviz.io/#/load=https%3A%2F%2Fraw.githubusercontent.com%2Fjschmitt-bigmit%2Fazure-dc-2019-supdevinci%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://armviz.io/visualizebutton.png"/></a>
 
  # Deploys the following infrastructure:
 
