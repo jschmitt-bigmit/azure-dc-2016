@@ -33,19 +33,11 @@ Modules déployés.
 Déploiement avec PowerShell :
 
 ```PowerShell
-# --- Set resource group name and create
-$ResourceGroupName = "pr-prod-rg"
-New-AzureRmResourceGroup -Name $ResourceGroupName -Location "West Europe" -Force
+# --- Login to Azure Cli
+az login
+# --- Creating Ressource Group
+az group create -l WestEurope -n LAB002
+# --- StartingDeployment Ressource Group
+az deployment group create --resource-group LAB002 --template-file C:\Users\Schmitt\Documents\azuredeploy.json --parameters envName='SUP' vNETAddress='192.168.50' userName='AdminDC' userPassword='CeciEstPourri123!' domainName='supdevinci.lan'
 
-# --- Deploy infrastructure
-$DeploymentParameters = @{
-    envName = "SUP"
-    vNETAddress = "192.168.50.0"
-    userName = "AdminDC"
-    userPassword = "PasswordPourri"
-    domainName = 'supdevinci.lan'
-
-}
-
-New-AzureRmResourceGroupDeployment -Name "deployment-01" -ResourceGroupName $ResourceGroupName -TemplateFile .\examples\example-linked-template.json @DeploymentParameters
 ```
